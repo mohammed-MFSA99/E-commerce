@@ -16,4 +16,10 @@ document
   .querySelectorAll('[data-bs-toggle="tooltip"]')
   .forEach((item) => new bootstrap.Tooltip(item));
 
+document.querySelectorAll(".add-to-cart-btn").forEach((item) => {
+  item.addEventListener("click", () => {
+    alert("تم اضافة المنتج الى العربة");
+  });
+});
+
 console.log("Hello, Webpack!");
