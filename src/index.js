@@ -44,7 +44,41 @@ document
     });
   });
 
+// حساب اجمالي المنتج
+document.querySelectorAll("[data-product-quantity]").forEach((item) => {
+  item.addEventListener("change", () => {
+    const newQuantity = item.value;
+    const parent = item.closest("[data-product-info]");
+    const pricePerUnit = parent.getAttribute("data-product-price");
+    const totalPriceForProduct = newQuantity * pricePerUnit;
+    parent.querySelector(".total-price-for-product").innerHTML =
+      totalPriceForProduct + " $";
+
+    // تحديث السعر الكلي
+    calulateTotalPrice();
+  });
+});
+
+document.querySelectorAll("[data-remove-from-card]").forEach((item) => {
+  item.addEventListener("click", () => {
+    item.closest("[data-product-info]").remove();
+    // تحديث السعر الكلي
+    calulateTotalPrice();
+  });
+});
+
+function calulateTotalPrice() {
+  // تحديث السعر الكلي
+  let totalPriceAllProducts = 0;
+  document.querySelectorAll("[data-product-info]").forEach((item) => {
+    const pricePerUnit = item.getAttribute("data-product-price");
+    const quantity = item.querySelector("[data-product-quantity]").value;
+    const totalPriceForProduct = pricePerUnit * quantity;
+    totalPriceAllProducts += totalPriceForProduct;
+  });
+  document.getElementById("total-price-for-all-product").innerHTML =
+    totalPriceAllProducts + " $";
+}
+
 document.getElementById("#copyright").innerHTML =
   "جميع الحقوق محفوظ سنة " + new Date().getFullYear();
-
-console.log("Hello, Webpack!");
