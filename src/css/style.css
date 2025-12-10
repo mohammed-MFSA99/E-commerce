@@ -655,8 +655,20 @@ h1.custom-heading {
   border-color: #b9001b;
   color: #b9001b;
 }
-
 /* ...............end checkout page.................. */
+
+/* ...............start payment page.................. */
+
+.custom-input-details {
+  border-width: 2px;
+  border-radius: 3px;
+  padding: 0px 16px;
+  font-size: 18px;
+  width: 98%;
+  height: 46px !important ;
+}
+
+/* ...............end payment page.................. */
 
 @media (max-width: 1399.98px) {
 }

@@ -80,5 +80,71 @@ function calulateTotalPrice() {
     totalPriceAllProducts + " $";
 }
 
+
+const citiesByCountry = {
+  ye : ["صنعاء", "عدن", "حضرموت"],
+  sa: ["الرياض", "جدة", "الدمام"],
+  eg: ["القاهرة", "الإسكندرية", "الجيزة"],
+  uae: ["دبي", "أبو ظبي", "الشارقة"],
+  kuw: ["مدينة الكويت", "الجهراء", "الفروانية"],
+  qat: ["الدوحة", "الريان", "الوكرة"],
+
+}
+
+document.querySelectorAll('select[name="country"]').forEach((item) => {
+  item.addEventListener("change", () => {
+    const country = item.value;
+    const cities = citiesByCountry[country];
+
+
+    document.querySelectorAll('#payment-cities option').forEach((option) => option.remove());
+    
+    const firstOption = document.createElement('option')
+    const optionText = document.createTextNode('اختر المدينة')
+    firstOption.appendChild(optionText)
+    firstOption.setAttribute('value','')
+    firstOption.setAttribute('disabled','true')
+    firstOption.setAttribute('selected','true')
+
+
+    const city_option = document.getElementById("payment-cities")
+    city_option.appendChild(firstOption)
+
+    cities.forEach((city) => {
+      const newOption = document.createElement("option");
+      const optionText = document.createTextNode(city);
+      newOption.appendChild(optionText);
+      newOption.setAttribute("value", city);
+      city_option.appendChild(newOption);
+    });
+
+   })
+
+})
+
+// اخفاء و اظهار حقول ادخال بطاقة ايتمان
+document.querySelectorAll('#form-checkout input[name="payment-method"]').forEach((item) => {
+  item.addEventListener("change", () => {
+    const paymentMethod = item.value;
+
+    const creditCardInputs = document.querySelectorAll('#credit-card-info input')
+    
+    if(paymentMethod === 'on-delivery') {
+      creditCardInputs.forEach((input) => {
+        input.style.display='none'
+      })
+    } else {
+      creditCardInputs.forEach((input) => {
+        input.style.display='block'
+      })
+    }
+
+    
+  })
+})
+
+
+
+
 document.getElementById("#copyright").innerHTML =
   "جميع الحقوق محفوظ سنة " + new Date().getFullYear();
