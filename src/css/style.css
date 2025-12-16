@@ -24,32 +24,6 @@ body {
   padding: 15px 0;
 }
 
-.custom-form-control,
-.dropdown a.custom-btn {
-  border: 1 px solid #ebebeb;
-  box-shadow: none;
-  border-radius: 2px;
-  color: #868686;
-  height: 36px;
-  padding: 6px 16px 7px;
-  margin: 7px;
-  transition: all 0.3s ease-in-out;
-}
-
-.custom-form-control:focus {
-  border-color: #ff3956;
-  box-shadow: 0 0 2px 0 #ff3956;
-}
-
-.dropdown a.custom-btn:hover {
-  background-color: #d4d4d4;
-  border: 1px solid #8c8c8c8c;
-  color: #ff3956;
-  cursor: pointer;
-}
-.dropdown a.custom-btn:focus {
-  color: #ff3956;
-}
 .dropdown a.categories {
   border-radius: 0;
 }
@@ -170,21 +144,6 @@ body {
   top: -15px;
 }
 
-.custom-btn-outline-warning {
-  background-color: transparent;
-  border-color: #f8ad47;
-  color: #f8a747;
-}
-
-.custom-btn-outline-warning:hover,
-.custom-btn-outline-warning:focus,
-.custom-btn-outline-warning:active,
-.custom-btn-outline-warning:active:focus,
-.custom-btn-outline-warning:active:hover {
-  border-color: #b86d07;
-  color: #b86d07;
-}
-
 .sale {
   background-color: #53ccd7;
   color: #fff;
@@ -263,21 +222,7 @@ body {
   margin-bottom: 25px;
 }
 
-.custom-thumbnail img {
-  max-height: 250px;
-  width: 100%;
-  max-width: 250px;
-}
 
-.custom-thumbnail {
-  border: 2px solid #eef0ea;
-  padding: 8px;
-  cursor: pointer;
-  margin-bottom: 50px;
-}
-.custom-thumbnail:hover {
-  border-color: #53ccd7;
-}
 
 .price {
   color: #53ccd7;
@@ -427,21 +372,6 @@ body {
   opacity: 0.6;
   border: none;
   height: 38px;
-}
-
-.custom-btn-warning {
-  color: #000;
-  background-color: #f8ad47;
-  border-color: #f8ad47;
-}
-
-.custom-btn-warning:hover,
-.custom-btn-warning:focus,
-.custom-btn-warning:active,
-.custom-btn-warning:active:focus,
-.custom-btn-warning:active:hover {
-  background-color: #b86d07;
-  border-color: #b86d07;
 }
 
 .newsletter form button {
@@ -607,54 +537,10 @@ h1.custom-heading {
   margin-left: 10px;
 }
 
-.custom-table th,
-.custom-table td {
-  padding: 15px;
-  font-size: 120%;
-  vertical-align: middle;
-  border-bottom: 1px solid #ebebeb;
-  border-top: 1px solid #ebebeb;
-}
-
-.custom-table h4 {
-  font-size: 18px;
-  margin: 12px 0;
-}
-
-.custom-table th {
-  color: #c2c2c2;
-  font-weight: normal;
-}
-
-.custom-table th:first-child,
-.custom-table td:first-child {
-  width: 50%;
-}
-
-.custom-table th:not(:first-child),
-.custom-table td:not(:first-child) {
-  text-align: center;
-}
-
-.custom-table tfoot td {
-  border-bottom: none;
-  font-size: 150%;
-}
-
 #total-price-for-all-product {
   color: #000;
 }
 
-.custom-btn-outline-danger {
-  background-color: transparent;
-  border-color: #ff3956;
-  color: #ff3956;
-}
-
-.custom-btn-outline-danger:hover {
-  border-color: #b9001b;
-  color: #b9001b;
-}
 /* ...............end checkout page.................. */
 
 /* ...............start payment page.................. */
@@ -730,6 +616,31 @@ h1.custom-heading {
 
 /* ...............end search page.................. */
 
+/* ...............start contact page.................. */
+#map {
+  padding: 0;
+}
+
+#contact-options h4 {
+  font-size: 18px;
+}
+
+#contact-info .fa-lg {
+  color: #f3af41;
+  margin: 10px 0px 0px 10px;
+}
+
+#contact-options textarea {
+  height: 105px !important;
+}
+
+#form-subscription button {
+  height: 39px !important ;
+  top: 5px !important;
+}
+
+/* ...............end contact page.................. */
+
 @media (max-width: 1399.98px) {
 }
 
@@ -739,8 +650,6 @@ h1.custom-heading {
   }
 }
 
-@media (max-width: 767.98px) and (max-width: 991.98px) {
-}
 
 @media (max-width: 991.98px) {
   .custom-navbar {
@@ -826,7 +735,7 @@ h1.custom-heading {
     font-size: 20px;
   }
 
-  .search-pagination{
+  .search-pagination {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -850,14 +759,7 @@ h1.custom-heading {
   #carousel-featured .carousel-item img {
     height: 250px;
   }
-  .custom-thumbnail img {
-    height: 250px;
-    margin: auto;
-  }
-
-  #carousel-most-sold-altrenative .custom-thumbnail img {
-    margin: auto;
-  }
+  
 
   #brand-log img {
     max-width: 50px;

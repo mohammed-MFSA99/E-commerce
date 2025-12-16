@@ -1,7 +1,8 @@
 window.bootstrap = require("bootstrap/dist/js/bootstrap.bundle.js");
-import "bootstrap/dist/css/bootstrap.min.css";
+import "./sass/custom.scss";
 import "./css/style.css";
 import "@fortawesome/fontawesome-free/js/all.min.js";
+import "./sass/style.scss";
 
 // كود من بوستراب ل اظهار  tooltip
 // const tooltipTriggerList = document.querySelectorAll(
@@ -80,35 +81,33 @@ function calulateTotalPrice() {
     totalPriceAllProducts + " $";
 }
 
-
 const citiesByCountry = {
-  ye : ["صنعاء", "عدن", "حضرموت"],
+  ye: ["صنعاء", "عدن", "حضرموت"],
   sa: ["الرياض", "جدة", "الدمام"],
   eg: ["القاهرة", "الإسكندرية", "الجيزة"],
   uae: ["دبي", "أبو ظبي", "الشارقة"],
   kuw: ["مدينة الكويت", "الجهراء", "الفروانية"],
   qat: ["الدوحة", "الريان", "الوكرة"],
-
-}
+};
 
 document.querySelectorAll('select[name="country"]').forEach((item) => {
   item.addEventListener("change", () => {
     const country = item.value;
     const cities = citiesByCountry[country];
 
+    document
+      .querySelectorAll("#payment-cities option")
+      .forEach((option) => option.remove());
 
-    document.querySelectorAll('#payment-cities option').forEach((option) => option.remove());
-    
-    const firstOption = document.createElement('option')
-    const optionText = document.createTextNode('اختر المدينة')
-    firstOption.appendChild(optionText)
-    firstOption.setAttribute('value','')
-    firstOption.setAttribute('disabled','true')
-    firstOption.setAttribute('selected','true')
+    const firstOption = document.createElement("option");
+    const optionText = document.createTextNode("اختر المدينة");
+    firstOption.appendChild(optionText);
+    firstOption.setAttribute("value", "");
+    firstOption.setAttribute("disabled", "true");
+    firstOption.setAttribute("selected", "true");
 
-
-    const city_option = document.getElementById("payment-cities")
-    city_option.appendChild(firstOption)
+    const city_option = document.getElementById("payment-cities");
+    city_option.appendChild(firstOption);
 
     cities.forEach((city) => {
       const newOption = document.createElement("option");
@@ -117,34 +116,31 @@ document.querySelectorAll('select[name="country"]').forEach((item) => {
       newOption.setAttribute("value", city);
       city_option.appendChild(newOption);
     });
-
-   })
-
-})
+  });
+});
 
 // اخفاء و اظهار حقول ادخال بطاقة ايتمان
-document.querySelectorAll('#form-checkout input[name="payment-method"]').forEach((item) => {
-  item.addEventListener("change", () => {
-    const paymentMethod = item.value;
+document
+  .querySelectorAll('#form-checkout input[name="payment-method"]')
+  .forEach((item) => {
+    item.addEventListener("change", () => {
+      const paymentMethod = item.value;
 
-    const creditCardInputs = document.querySelectorAll('#credit-card-info input')
-    
-    if(paymentMethod === 'on-delivery') {
-      creditCardInputs.forEach((input) => {
-        input.style.display='none'
-      })
-    } else {
-      creditCardInputs.forEach((input) => {
-        input.style.display='block'
-      })
-    }
+      const creditCardInputs = document.querySelectorAll(
+        "#credit-card-info input"
+      );
 
-    
-  })
-})
-
-
-
+      if (paymentMethod === "on-delivery") {
+        creditCardInputs.forEach((input) => {
+          input.style.display = "none";
+        });
+      } else {
+        creditCardInputs.forEach((input) => {
+          input.style.display = "block";
+        });
+      }
+    });
+  });
 
 document.getElementById("#copyright").innerHTML =
   "جميع الحقوق محفوظ سنة " + new Date().getFullYear();
