@@ -142,5 +142,5 @@ document
     });
   });
 
-document.getElementById("#copyright").innerHTML =
+document.getElementById("copyright").innerHTML =
   "جميع الحقوق محفوظ سنة " + new Date().getFullYear();
