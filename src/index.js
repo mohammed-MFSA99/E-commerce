@@ -23,6 +23,18 @@ document.querySelectorAll(".add-to-cart-btn").forEach((item) => {
   });
 });
 
+// ظل للهيدر
+window.addEventListener("scroll", () => {
+  const navbar = document.querySelector(".custom-navbar");
+  if (navbar) {
+    if (window.scrollY > 20) {
+      navbar.classList.add("shadow-sm");
+    } else {
+      navbar.classList.remove("shadow-sm");
+    }
+  }
+});
+
 document
   .querySelectorAll('.size-option input[type="radio"]')
   .forEach((item) => {
